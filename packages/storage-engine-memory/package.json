@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node --transpile-only src",
-    "build": "swc src -d dist --delete-dir-on-start",
-    "compile": "npx -y pkg ./dist/index.js --out-dir=bin -t node18-linux-x64,node18-macos-x64,node18-win-x64",
-    "distribute": "npm run build && npm run compile",
+    "compile": "swc src -d dist --delete-dir-on-start",
+    "pkg": "npx -y pkg ./dist/index.js --out-dir=bin -t node18-linux-x64,node18-macos-x64,node18-win-x64",
+    "build": "npm run compile && npm run pkg",
     "test": "jest",
     "test:watch": "jest --watch --coverage=false",
     "lint": "rome check src --apply-suggested",
